@@ -1,63 +1,284 @@
-
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sajid presentation</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mitra AI — Under Construction</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Mitra AI — student wellness companion. Website currently under construction." />
+  <style>
+    :root{
+      --bg1: #0f172a;    /* deep navy */
+      --bg2: #062d4f;    /* teal-blue */
+      --card: rgba(255,255,255,0.06);
+      --accent: #8be4c6;
+      --muted: rgba(255,255,255,0.7);
+      --glass: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: radial-gradient(600px 400px at 10% 20%, rgba(139,228,198,0.06), transparent),
+                  radial-gradient(500px 300px at 90% 80%, rgba(139,228,198,0.03), transparent),
+                  linear-gradient(180deg,var(--bg1),var(--bg2));
+      color: #fff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:40px;
+    }
+
+    .container{
+      width:100%;
+      max-width:940px;
+      background:var(--glass);
+      border-radius:20px;
+      padding:48px;
+      box-shadow: 0 10px 40px rgba(2,6,23,0.6);
+      backdrop-filter: blur(6px) saturate(120%);
+      border: 1px solid rgba(255,255,255,0.04);
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:30px;
+      align-items:center;
+    }
+
+    @media (max-width:880px){
+      .container{ grid-template-columns: 1fr; padding:32px; gap:20px; }
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      margin-bottom:6px;
+    }
+    .logo {
+      width:56px;height:56px;border-radius:14px;
+      display:flex;align-items:center;justify-content:center;
+      background: linear-gradient(135deg,#a0f0d6,#5ccdb1);
+      color:#022;
+      font-weight:700;
+      box-shadow: 0 6px 18px rgba(44,150,120,0.18);
+      font-size:20px;
+      flex-shrink:0;
+    }
+
+    h1{
+      font-size:26px;
+      margin:6px 0 8px 0;
+      letter-spacing:-0.3px;
+      color: #ffffff;
+    }
+    p.lead{
+      margin:0 0 18px 0;
+      color:var(--muted);
+      line-height:1.5;
+    }
+
+    .status{
+      margin-top:18px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+
+    .dotwrap{
+      display:flex;
+      gap:6px;
+      align-items:center;
+    }
+    .pulse-dot{
+      width:10px;height:10px;border-radius:50%;
+      background:var(--accent);
+      box-shadow:0 0 0 0 rgba(139,228,198,0.6);
+      animation: pulse 1.8s infinite;
+    }
+    .pulse-dot:nth-child(2){ animation-delay:0.3s; opacity:0.9}
+    .pulse-dot:nth-child(3){ animation-delay:0.6s; opacity:0.8}
+
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(139,228,198,0.7); }
+      70% { transform: scale(1.6); box-shadow: 0 0 22px 12px rgba(139,228,198,0.03); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(139,228,198,0); }
+    }
+
+    .card-right{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015));
+      padding:22px;
+      border-radius:14px;
+      border: 1px solid rgba(255,255,255,0.03);
+      box-shadow: 0 8px 30px rgba(3,7,18,0.45);
+    }
+
+    .progress{
+      height:10px;
+      background: rgba(255,255,255,0.04);
+      border-radius:999px;
+      overflow:hidden;
+      margin-top:16px;
+    }
+    .progress > i{
+      display:block;
+      height:100%;
+      width:46%;
+      background: linear-gradient(90deg, rgba(139,228,198,0.12), rgba(139,228,198,0.28));
+      border-radius:999px;
+      position:relative;
+      animation: move 4.5s infinite linear;
+    }
+    @keyframes move {
+      0% { transform: translateX(-6%); }
+      50% { transform: translateX(6%); }
+      100% { transform: translateX(-6%); }
+    }
+
+    .small{
+      font-size:13px;
+      color:var(--muted);
+      margin-top:8px;
+    }
+
+    .subscribe{
+      margin-top:14px;
+      display:flex;
+      gap:8px;
+    }
+    .subscribe input{
+      flex:1;
+      padding:10px 12px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.04);
+      background:transparent;
+      color:#fff;
+      outline:none;
+      font-size:14px;
+    }
+    .subscribe button{
+      padding:10px 14px;
+      border-radius:10px;
+      border:0;
+      background: linear-gradient(90deg,#6bd5b0,#3fbf99);
+      color:#042;
+      font-weight:600;
+      cursor:pointer;
+    }
+
+    footer{
+      grid-column: 1 / -1;
+      margin-top:6px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      color:rgba(255,255,255,0.6);
+      font-size:13px;
+    }
+    .links a{ color:rgba(255,255,255,0.6); text-decoration:none; margin-left:14px }
+    .links a:hover{ color:var(--accent) }
+
+    .illustration{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      flex-direction:column;
+      text-align:center;
+    }
+    .illus-svg{
+      width:140px;height:140px;
+      filter: drop-shadow(0 10px 30px rgba(6,46,70,0.35));
+    }
+
+    /* Subtle floating */
+    .float {
+      animation: floaty 6s ease-in-out infinite;
+    }
+    @keyframes floaty {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0px); }
+    }
+  </style>
 </head>
 <body>
-    <style>
-        .floating-badge {
-          position: fixed;
-          bottom: 18px;
-          right: 30px; /* moved left from 18px */
-          width: 200px; /* slightly wider */
-          height: 25px; /* slightly shorter */
-          background-color: #1f1f1f;
-          color: #ffffff;
-          font-size: 12.8px;
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-          padding: 5px 12px;
-          border-radius: 16px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-          z-index: 9999;
-        }
-    
-        .floating-badge a {
-          color: white;
-          text-decoration: none;
-          display: flex;
-          align-items: center;
-          gap: 6px;
-        }
-    
-        .floating-badge img {
-          width: 16px;
-          height: 16px;
-          display: inline-block;
-        }
-    
-        .floating-badge a:hover {
-          opacity: 0.85;
-        }
-      </style>
-<style>
-    body {
-        margin: 0; /* Remove default margin */
-    }
-    iframe {
-        display: block; /* iframes are inline by default */
-        height: 100vh; /* Set height to 100% of the viewport height */
-        width: 100vw; /* Set width to 100% of the viewport width */
-        border: none; /* Remove default border */
-        background: lightyellow; /* Just for styling */
-    }
-</style>
-    <iframe id="myIframe" src="https://sajidvfx.github.io/s3/" width="600" height="400"></iframe>
+  <div class="container" role="main" aria-labelledby="title">
+    <div>
+      <div class="brand">
+        <div class="logo" aria-hidden="true">M</div>
+        <div>
+          <div style="font-weight:600; color:#dffdf3; font-size:14px">Mitra AI</div>
+          <div style="font-size:12px; color:rgba(255,255,255,0.6)">Student mental wellness companion</div>
+        </div>
+      </div>
+
+      <h1 id="title">Mitra website is under building progress</h1>
+      <p class="lead">Thank you for your interest — we're crafting a helpful, private, and locally-tuned AI companion for students. The site will be live soon with chat tools, mood tracking, and helpful study stress hacks.</p>
+
+      <div class="status" aria-hidden="true">
+        <div class="dotwrap" title="building status">
+          <div class="pulse-dot"></div>
+          <div class="pulse-dot"></div>
+          <div class="pulse-dot"></div>
+        </div>
+        <div style="color:var(--muted); font-size:14px">Building progress — alpha preview</div>
+      </div>
+
+      <div style="margin-top:22px; display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+        <div style="background:rgba(255,255,255,0.03); padding:10px 12px; border-radius:10px; font-size:13px; color:var(--muted)">
+          Local language friendly
+        </div>
+        <div style="background:rgba(255,255,255,0.03); padding:10px 12px; border-radius:10px; font-size:13px; color:var(--muted)">
+          Privacy-first design
+        </div>
+        <div style="background:rgba(255,255,255,0.03); padding:10px 12px; border-radius:10px; font-size:13px; color:var(--muted)">
+          Student-focused features
+        </div>
+      </div>
+
+    </div>
+
+    <aside class="card-right">
+      <div class="illustration">
+        <!-- friendly shield+heart svg -->
+        <svg class="illus-svg float" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#A8F4D6"/>
+              <stop offset="1" stop-color="#5CCDB1"/>
+            </linearGradient>
+          </defs>
+          <g transform="translate(10,6)">
+            <path d="M50 0 L90 18 V46 C90 75 70 96 50 110 C30 96 10 75 10 46 V18 Z" fill="url(#g1)" opacity="0.96"/>
+            <path d="M50 44 C54 40 62 40 66 44 C70 48 70 56 66 60 L50 76 L34 60 C30 56 30 48 34 44 C38 40 46 40 50 44 Z" fill="#042a28" opacity="0.95"/>
+          </g>
+        </svg>
+
+        <div style="font-weight:600; font-size:16px; color:#fff">Alpha Preview</div>
+        <div class="small">We’ll notify early adopters and campus partners.</div>
+
+        <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="46" title="approx progress">
+          <i></i>
+        </div>
+
+        <div class="small">Want updates? (UI only) —</div>
+        <div class="subscribe" aria-hidden="true">
+          <input placeholder="Enter email (optional)" aria-label="email placeholder" />
+          <button type="button">Notify me</button>
+        </div>
+      </div>
+    </aside>
+
+    <footer>
+      <div>© <strong>Mitra AI</strong> — made with care</div>
+      <div class="links">
+        <a href="#" aria-disabled="true">Privacy</a>
+        <a href="#" aria-disabled="true">Contact</a>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
